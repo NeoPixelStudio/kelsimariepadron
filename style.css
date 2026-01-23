@@ -1,0 +1,217 @@
+.book {
+  transition: opacity 0.4s 0.2s;
+}
+.page {
+  width: 36vw;
+  height: 27vw;
+  background-colour: #fff;
+  float: left;
+  margin-bottom: 0.5em;
+}
+.page:first-child {
+  float: right;
+}
+.page:nth-child(even) {
+  clear: both;
+}
+.bound {
+  perspective: 250vw;
+}
+.bound .pages {
+  width: 72vw;
+  height: 27vw;
+  position: relative;
+  transform: rotateX(12deg);
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px #e3dfd8;
+}
+.bound .page {
+  float: none;
+  clear: none;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 36vw;
+  height: 27vw;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.bound .page:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.7s;
+  z-index: 2;
+}
+.bound .page:nth-child(odd) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+  right: 0;
+  border-radius: 0 4px 4px 0;
+}
+.bound .page:nth-child(odd):hover {
+  transform: rotateY(-10deg);
+}
+.bound .page:nth-child(odd):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+.bound .page:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0);
+}
+.bound .page:nth-child(even) {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  transform-origin: 100% 0;
+  left: 0;
+  border-radius: 4px 0 0 4px;
+}
+.bound .page:nth-child(even):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+.bound .page.grabbing {
+  transition: none;
+}
+.bound .page.flipped:nth-child(odd) {
+  pointer-events: none;
+  transform: rotateY(-180deg);
+}
+.bound .page.flipped:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+.bound .page.flipped:nth-child(even) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+}
+.bound .page.flipped:nth-child(even):hover {
+  transform: rotateY(10deg);
+}
+.bound .page.flipped:nth-child(even):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+.bound .page.flipped:nth-child(even):before {
+  background: rgba(0, 0, 0, 0);
+}
+*,
+* :before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  background: #e3dfd8;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 0;
+  line-height: 1.5em;
+}
+.page {
+  color: transparent;
+  background: left top no-repeat;
+  background-size: cover;
+}
+.page:nth-child(3),
+.page:nth-child(5),
+.page:nth-child(7),
+.page:nth-child(9),
+.page:nth-child(11),
+.page:nth-child(13),
+.page:nth-child(15),
+.page:nth-child(17),
+.page:nth-child(19),
+.page:nth-child(21),
+.page:nth-child(23),
+.page:nth-child(25),
+.page:nth-child(27),
+.page:nth-child(29),
+.page:nth-child(31) {
+  background-position: right top;
+}
+.page:nth-child(1) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_cover_f.jpg');
+}
+.page:nth-child(2),
+.page:nth-child(3) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_end_01.jpg');
+}
+.page:nth-child(4),
+.page:nth-child(5) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00000.jpg');
+}
+.page:nth-child(6),
+.page:nth-child(7) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00001.jpg');
+}
+.page:nth-child(8),
+.page:nth-child(9) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00002.jpg');
+}
+.page:nth-child(10),
+.page:nth-child(11) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00003.jpg');
+}
+.page:nth-child(12),
+.page:nth-child(13) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00004.jpg');
+}
+.page:nth-child(14),
+.page:nth-child(15) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00005.jpg');
+}
+.page:nth-child(16),
+.page:nth-child(17) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00006.jpg');
+}
+.page:nth-child(18),
+.page:nth-child(19) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00007.jpg');
+}
+.page:nth-child(20),
+.page:nth-child(21) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00008.jpg');
+}
+.page:nth-child(22),
+.page:nth-child(23) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00009.jpg');
+}
+.page:nth-child(24),
+.page:nth-child(25) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00010.jpg');
+}
+.page:nth-child(26),
+.page:nth-child(27) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00011.jpg');
+}
+.page:nth-child(28),
+.page:nth-child(29) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_spread_00012.jpg');
+}
+.page:nth-child(30),
+.page:nth-child(31) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_end_02.jpg');
+}
+.page:nth-child(32) {
+  background-image: url('http://jasonhibbs.co.uk/wp-content/uploads/2015/02/bh_cover_b.jpg');
+}
