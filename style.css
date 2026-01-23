@@ -35,7 +35,7 @@ body {
   clear: both;
 }
 .bound {
-  /* perspective: 250vw; */
+  perspective: 250vw;
 }
 .bound .pages {
   width: 100vw;
@@ -166,7 +166,6 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: top;
-  animation: fadeOutImage 1s ease-in-out 25s forwards;
 }
 
 @keyframes fadeOutImage {
@@ -176,6 +175,39 @@ body {
   to {
     opacity: 0;
   }
+}
+
+.video-page {
+  background: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.split-video1 {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+.split-video2 {
+  position: absolute;
+  top: 50%;
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+.page:nth-child(2) .split-video {
+  clip-path: inset(0 50% 0 0);
+}
+
+.page:nth-child(3) .split-video {
+  clip-path: inset(0 0 0 50%);
 }
 
 
@@ -189,7 +221,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  padding: 60px 80px;
+  padding: 10% 5%;
   color: white;
   z-index: 10;
   text-align: right;
