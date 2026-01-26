@@ -1,17 +1,23 @@
+/* =====================================================
+   RESET Y ESTILOS GLOBALES
+   ===================================================== */
 *,
-* :before,
+*:before,
 *:after {
   box-sizing: border-box;
 }
+
+html {
+  height: 100%;
+}
+
 html,
 body {
   background: #e3dfd8;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   overflow: hidden;
 }
-html {
-  height: 100%;
-}
+
 body {
   min-height: 100vh;
   display: flex;
@@ -19,30 +25,20 @@ body {
   align-items: center;
   line-height: 1.5em;
 }
+
+/* =====================================================
+   CONTENEDOR DEL LIBRO (.book .bound)
+   ===================================================== */
 .book {
   transition: opacity 0.4s 0.2s;
 }
-.page {
-  width: 50vw;
-  height: 27vw;
-  background-color: #fff;
-  float: left;
-  margin-bottom: 0.5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.page:first-child {
-  float: right;
-}
-.page:nth-child(even) {
-  clear: both;
-}
+
 .bound {
   perspective: 2000px;
   width: 150vh;
   height: 100vh;
 }
+
 .bound .pages {
   width: 100%;
   height: 100%;
@@ -50,10 +46,14 @@ body {
   transform: rotateX(12deg);
   transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   border-radius: 4px;
   box-shadow: 0 0 0 1px #e3dfd8;
 }
+
+/* =====================================================
+   PÁGINAS Y ANIMACIONES DEL LIBRO
+   ===================================================== */
 .bound .page {
   float: none;
   clear: none;
@@ -65,15 +65,19 @@ body {
   transform-origin: 0 0;
   transition: transform 1.4s;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   transform-style: preserve-3d;
   cursor: pointer;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Sombra/overlay en las páginas */
 .bound .page:before {
   content: '';
   position: absolute;
@@ -85,21 +89,28 @@ body {
   transition: background 0.7s;
   z-index: 2;
 }
+
+/* Página derecha (impar) - Interactiva */
 .bound .page:nth-child(odd) {
   pointer-events: all;
   transform: rotateY(0deg);
   right: 0;
   border-radius: 0 4px 4px 0;
 }
-.bound .page:nth-child(odd):hover {
-  transform: rotateY(-10deg);
-}
-.bound .page:nth-child(odd):hover:before {
-  background: rgba(0, 0, 0, 0.03);
-}
+
 .bound .page:nth-child(odd):before {
   background: rgba(0, 0, 0, 0);
 }
+
+.bound .page:nth-child(odd):hover {
+  transform: rotateY(-10deg);
+}
+
+.bound .page:nth-child(odd):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Página izquierda (par) - Trasera */
 .bound .page:nth-child(even) {
   pointer-events: none;
   transform: rotateY(180deg);
@@ -107,51 +118,45 @@ body {
   left: 0;
   border-radius: 4px 0 0 4px;
 }
+
 .bound .page:nth-child(even):before {
   background: rgba(0, 0, 0, 0.2);
 }
+
+/* Página volteada */
 .bound .page.grabbing {
   transition: none;
 }
+
 .bound .page.flipped:nth-child(odd) {
   pointer-events: none;
   transform: rotateY(-180deg);
 }
+
 .bound .page.flipped:nth-child(odd):before {
   background: rgba(0, 0, 0, 0.2);
 }
+
 .bound .page.flipped:nth-child(even) {
   pointer-events: all;
   transform: rotateY(0deg);
 }
-.bound .page.flipped:nth-child(even):hover {
-  transform: rotateY(10deg);
-}
-.bound .page.flipped:nth-child(even):hover:before {
-  background: rgba(0, 0, 0, 0.03);
-}
+
 .bound .page.flipped:nth-child(even):before {
   background: rgba(0, 0, 0, 0);
 }
-.page {
-  background: left top no-repeat;
-  background-size: cover;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
+
+.bound .page.flipped:nth-child(even):hover {
+  transform: rotateY(10deg);
 }
 
-#vid_hero {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: auto;
-  height: 100%;
-  min-width: 100%;
-  min-height: auto;
-  transform: translate(-50%, -50%);
+.bound .page.flipped:nth-child(even):hover:before {
+  background: rgba(0, 0, 0, 0.03);
 }
 
+/* =====================================================
+   PÁGINA 1: HERO PAGE
+   ===================================================== */
 .hero-page {
   background: black;
   position: relative;
@@ -174,49 +179,38 @@ body {
   object-position: top;
 }
 
-@keyframes fadeOutImage {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-.video-page {
-  background: black;
-  position: relative;
-  overflow: hidden;
-}
-
-.split-video1 {
+.hero-sidebar {
   position: absolute;
+  left: 60px;
   top: 50%;
-  left: 100%;
-  width: 200%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 10;
 }
 
-.split-video2 {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 200%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(0, -50%);
+.sidebar-item {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: clamp(0.6rem, 0.7vw, 0.9rem);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 10px;
 }
 
-.page:nth-child(2) .split-video {
-  clip-path: inset(0 50% 0 0);
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
 }
-
-.page:nth-child(3) .split-video {
-  clip-path: inset(0 0 0 50%);
-}
-
 
 .hero-content {
   position: absolute;
@@ -286,85 +280,72 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.hero-sidebar {
+/* =====================================================
+   PÁGINAS 2 Y 3: VIDEO PAGES
+   ===================================================== */
+.video-page {
+  background: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.split-video1 {
   position: absolute;
-  left: 60px;
   top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  z-index: 10;
+  left: 100%;
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
 }
 
-.sidebar-item {
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: clamp(0.6rem, 0.7vw, 0.9rem);
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s;
-  padding: 10px;
+.split-video2 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(0, -50%);
 }
 
-.sidebar-item:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-
-
-.page:nth-child(3),
-.page:nth-child(5),
-.page:nth-child(7),
-.page:nth-child(9),
-.page:nth-child(11),
-.page:nth-child(13),
-.page:nth-child(15),
-.page:nth-child(17),
-.page:nth-child(19),
-.page:nth-child(21),
-.page:nth-child(23),
-.page:nth-child(25),
-.page:nth-child(27),
-.page:nth-child(29),
-.page:nth-child(31) {
-  background-position: right top;
-}
+/* =====================================================
+   PÁGINAS 4-16: CONTENIDO NUMERADO
+   ===================================================== */
 .page:nth-child(1) {
   background: black;
 }
+
 .page:nth-child(2),
 .page:nth-child(3) {
-  background-color:  black;
+  background-color: black;
 }
+
 .page:nth-child(4),
 .page:nth-child(5) {
   background-color: salmon;
 }
+
 .page:nth-child(6),
 .page:nth-child(7) {
   background-color: darkviolet;
 }
+
 .page:nth-child(8),
 .page:nth-child(9) {
   background-color: cornflowerblue;
 }
+
 .page:nth-child(10),
 .page:nth-child(11) {
   background-color: chocolate;
 }
+
 .page:nth-child(12),
 .page:nth-child(13) {
   background-color: cadetblue;
 }
+
 .page:nth-child(14),
 .page:nth-child(15) {
   background-color: burlywood;
@@ -374,7 +355,9 @@ body {
   background-color: darkred;
 }
 
-
+/* =====================================================
+   RESPONSIVE: ORIENTACIÓN PORTRAIT
+   ===================================================== */
 @media (orientation: portrait) {
   .bound {
     margin-left: -90%;
