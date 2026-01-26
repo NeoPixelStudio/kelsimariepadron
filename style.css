@@ -54,7 +54,14 @@ body {
 /* =====================================================
    PÁGINAS Y ANIMACIONES DEL LIBRO
    ===================================================== */
-.bound .page {
+
+.page {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+   .bound .page {
   float: none;
   clear: none;
   margin: 0;
