@@ -11,20 +11,22 @@ html {
   height: 100%;
 }
 
-html,
 body {
   background: #e3dfd8;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  overflow: hidden;
-}
-
-body {
-  min-height: 100vh;
+  line-height: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  line-height: 1.5em;
   font-family: Georgia, serif;
+  font-size: 1vh;
+  margin-top: 5vh;
+}
+
+@media (orientation: portrait) {
+  body {
+    margin-top: 0;
+    justify-content: right;
+  }
 }
 
 /* =====================================================
@@ -35,9 +37,19 @@ body {
 }
 
 .bound {
-  perspective: 2000px;
-  width: 150vh;
+  perspective: 5000px;
+  max-height: 100vh;
   height: 100vh;
+  margin-top: -1%;
+  aspect-ratio: 10 / 9;
+}
+
+@media (orientation: portrait) {
+  .bound {
+    margin-left: -85%;
+    /* margin-top: -10%; */
+    height: 85vh;
+  }
 }
 
 .bound .pages {
@@ -55,13 +67,6 @@ body {
 /* =====================================================
    PÁGINAS Y ANIMACIONES DEL LIBRO
    ===================================================== */
-
-/* .page {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-items: center;
-} */
 
    .bound .page {
   float: none;
@@ -210,7 +215,6 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: clamp(0.6rem, 0.7vw, 0.9rem);
   text-align: center;
   cursor: pointer;
   transition: all 0.3s;
@@ -239,7 +243,6 @@ body {
 }
 
 .hero-title {
-  font-size: clamp(1.5rem, 2.5vw, 3rem);
   font-weight: 300;
   font-style: italic;
   margin-bottom: 40px;
@@ -254,7 +257,6 @@ body {
 }
 
 .text-line {
-  font-size: clamp(1.3rem, 2.2vw, 2.8rem);
   font-weight: 300;
   letter-spacing: 4px;
 }
@@ -265,11 +267,9 @@ body {
 }
 
 .hero-subtitle {
-  font-size: clamp(0.7rem, 0.9vw, 1.2rem);
   font-weight: 300;
   letter-spacing: 2px;
   margin-bottom: 30px;
-  line-height: 1.8;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   padding-bottom: 30px;
 }
@@ -279,7 +279,6 @@ body {
   border: 1px solid white;
   color: white;
   padding: 12px 30px;
-  font-size: clamp(0.65rem, 0.8vw, 1rem);
   letter-spacing: 2px;
   cursor: pointer;
   transition: all 0.3s;
@@ -373,21 +372,10 @@ body {
 }
 
 /* =====================================================
-   RESPONSIVE: ORIENTACIÓN PORTRAIT
-   ===================================================== */
-@media (orientation: portrait) {
-  .bound {
-    margin-left: -70%;
-    margin-top: -10%;
-  }
-}
-
-/* =====================================================
    PAGES
    ===================================================== */
 
 .page_title {
-  font-size: clamp(1.5rem, 2.5vw, 3rem);
   font-weight: 300;
   font-style: italic;
   margin-bottom: 40px;
@@ -403,13 +391,12 @@ body {
 
 .paragraph1 {
   column-count: 1;      
-  text-align: justify;     
-  line-height: 1.6;
+  text-align: justify;
   padding-right: 20px;         
   box-sizing: border-box;
   flex: 1;                
   max-width: 50%;
-  max-height: fit-content;
+  max-height: 35vh;
   margin: 0;
 }
 
@@ -418,7 +405,6 @@ body {
   column-gap: 40px;         
   column-rule: 1px solid #ccc; 
   text-align: justify;     
-  line-height: 1.6;     
   box-sizing: border-box;
 }
 
