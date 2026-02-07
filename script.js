@@ -9,6 +9,26 @@ pages.each(function(i) {
 });
 
 $(window).load(function() {
+  // Detectar orientación portrait y hacer scroll horizontal
+  function scrollToRightIfPortrait() {
+    if (window.innerHeight > window.innerWidth) {
+      // En portrait: hacer scroll hacia la derecha
+      setTimeout(function() {
+        var maxScroll = Math.max(
+          document.documentElement.scrollWidth,
+          document.body.scrollWidth
+        ) - window.innerWidth;
+        $('html, body').animate({ scrollLeft: maxScroll }, 1200);
+      }, 300);
+    }
+  }
+  
+  scrollToRightIfPortrait();
+  
+  // También detectar cambios de orientación
+  window.addEventListener('orientationchange', function() {
+    setTimeout(scrollToRightIfPortrait, 100);
+  });
   
   $('.page').click(function() {
     var page = $(this);
