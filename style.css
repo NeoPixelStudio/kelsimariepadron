@@ -12,7 +12,7 @@ body {
   background: #e3dfd8;
   line-height: 2.5;
   font-family: Georgia, serif;
-  font-size: 1vh;
+  font-size: 1.25vh;
   overflow-y: auto;
   min-height: 100vh;
 }
@@ -21,6 +21,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("./img/background3.jpg");
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  background-attachment: local;
 }
 
 @media (orientation: portrait) {
@@ -29,6 +34,43 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     line-height: 2;
+  }
+}
+
+body {
+  background-image: url("./img/background3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 21:9 y mayores (landscape) */
+@media (min-aspect-ratio: 21/9) and (orientation: landscape) {
+  body {
+    background-image: url("./img/background3.jpg");
+  }
+}
+
+/* Menor que 21:9 hasta 16:9 (landscape) */
+@media (max-aspect-ratio: 21/9) and (min-aspect-ratio: 16/10) and (orientation: landscape) {
+  body {
+    background-image: url("./img/background2.jpg");
+  }
+}
+
+/* Igual o menor que 16:9 hasta 1:1 (landscape) */
+@media (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) and (orientation: landscape) {
+  body {
+    background-image: url("./img/background1.jpg");
+  }
+}
+
+/* Portrait: siempre usar background.jpg */
+@media (orientation: portrait) {
+  body {
+    background-image: url("./img/background.jpg");
+    background-size: cover;
+    background-position: center;
   }
 }
 
@@ -54,14 +96,12 @@ body {
 
 .bound .pages {
   width: 100%;
-  height: 100%;
+  height: 103vh;
   position: relative;
   transform: rotateX(12deg);
   transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: 4px;
-  box-shadow: 0 0 0 1px #e3dfd8;
 }
 
 /* =====================================================
@@ -173,52 +213,30 @@ body {
    PÁGINA 1: HERO PAGE
    ===================================================== */
 .hero-page {
-  background: black;
   position: relative;
-}
-
-.hero-image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
+  background-image: url("./img/hero.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero-sidebar {
   position: absolute;
-  left: 60px;
-  top: 50%;
+  top: 55%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  column-gap: 30px;
   z-index: 10;
 }
 
 .sidebar-item {
   width: 80px;
   height: 80px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   color: white;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
-  transition: all 0.3s;
-  padding: 10px;
 }
 
 .sidebar-item:hover {
@@ -249,15 +267,18 @@ body {
   letter-spacing: 2px;
 }
 
+#title {
+  width: 300px;
+  height: auto;
+}
+
 .hero-text {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 40px;
 }
 
 .text-line {
-  font-weight: 300;
   letter-spacing: 4px;
 }
 
@@ -321,7 +342,6 @@ body {
    PÁGINAS 4-16: CONTENIDO NUMERADO
    ===================================================== */
 .page:nth-child(1) {
-  background: black;
 }
 
 .page:nth-child(2),
@@ -374,13 +394,26 @@ body {
    PAGES
    ===================================================== */
 
-.page_title {
+.page_title1 {
+  font-size: 8vh;
+  line-height: 1;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 2px;
+  text-align: center;
+  padding-top: 2vh;
+}
+
+.page_title2 {
+  font-size: 8vh;
+  line-height: 0.5;
+  color: rebeccapurple;
+  font-family: fantasy;
   font-weight: 300;
   font-style: italic;
   margin-bottom: 40px;
   letter-spacing: 2px;
   text-align: center;
-  padding-top: 5vh;
 }
 
 .paragraph_img {
@@ -389,7 +422,6 @@ body {
 }
 
 .paragraph1 {
-  column-count: 1;
   text-align: justify;
   padding-right: 20px;
   box-sizing: border-box;
