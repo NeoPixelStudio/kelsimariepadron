@@ -65,10 +65,9 @@ body {
   }
 }
 
-/* Portrait: siempre usar background.jpg */
 @media (orientation: portrait) {
   body {
-    background-image: url("./img/background.jpg");
+    background-image: url("./img/background.png");
     background-size: cover;
     background-position: center;
   }
@@ -218,25 +217,31 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  padding: 0!important;
+  line-height: 1.25;
 }
 
-.hero-sidebar {
-  position: absolute;
-  top: 55%;
-  transform: translateY(-50%);
+.hero-leftside {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   column-gap: 30px;
   z-index: 10;
+  padding: 10% 5%;
 }
 
 .sidebar-item {
-  width: 80px;
-  height: 80px;
-  display: flex;
+  width: 100%;
   color: white;
-  text-align: left;
+  text-align: right;
   cursor: pointer;
+  font-size: 2vh;
+  font-family: roboto, sans-serif;
+  font-weight: 400;
+  padding-bottom: 0.5vh;
 }
 
 .sidebar-item:hover {
@@ -244,27 +249,24 @@ body {
   border-color: rgba(255, 255, 255, 0.5);
 }
 
+.sidebar-text {
+  color: white;
+  font-size: 1.25vh;
+  padding-bottom: 2vh;
+  /* font-family: fantasy; */
+}
+
 .hero-content {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
   padding: 10% 5%;
+  padding-top:25vh;
   color: white;
   z-index: 10;
   text-align: right;
-}
-
-.hero-title {
-  font-weight: 300;
-  font-style: italic;
-  margin-bottom: 40px;
-  letter-spacing: 2px;
 }
 
 #title {
@@ -411,7 +413,7 @@ body {
   font-family: fantasy;
   font-weight: 300;
   font-style: italic;
-  margin-bottom: 40px;
+  margin-bottom: 5vh;
   letter-spacing: 2px;
   text-align: center;
 }
