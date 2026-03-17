@@ -1,5 +1,6 @@
 var pages = $('.pages').children();
 var grabs = false; // Gonna work on this, one day
+var startTime = Date.now(); // Tiempo de inicio para el loader
 
 pages.each(function(i) {
   var page = $(this);
@@ -9,16 +10,22 @@ pages.each(function(i) {
 });
 
 $(window).load(function() {
+  var effectTime = 0; // Tiempo del efecto de scroll
+  
   // Detectar orientación portrait y hacer scroll horizontal
   function scrollToRightIfPortrait() {
     if (window.innerHeight > window.innerWidth) {
+      effectTime = 1500; // 300ms delay + 1200ms animate
       // En portrait: hacer scroll hacia la derecha
       setTimeout(function() {
+        $('#loader').css('background', 'transparent'); // Hacer loader transparente durante el efecto
         var maxScroll = Math.max(
           document.documentElement.scrollWidth,
           document.body.scrollWidth
         ) - window.innerWidth;
-        $('html, body').animate({ scrollLeft: maxScroll }, 1200);
+        $('html, body').animate({ scrollLeft: maxScroll }, 1200, function() {
+          $('#loader').css('background', '#e3dfd8'); // Restaurar background después del efecto
+        });
       }, 300);
     }
   }
@@ -106,4 +113,15 @@ $(window).load(function() {
   }
   
   $('.book').addClass('bound');
+
+  
+  setTimeout(function() {
+    $('#loader').fadeOut();
+    
+    // Reproducir videos automáticamente
+    var videos = document.querySelectorAll('.split-video1, .split-video2');
+    videos.forEach(function(video) {
+      video.play();
+    });
+  }, 0);
 });
