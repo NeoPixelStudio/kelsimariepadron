@@ -123,5 +123,6 @@ $(window).load(function() {
     videos.forEach(function(video) {
       video.play();
     });
+    
   }, 0);
 });
