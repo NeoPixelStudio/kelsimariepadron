@@ -579,7 +579,7 @@ body {
     color: rebeccapurple;
     font-family: playfair, serif;
     position: absolute;
-    padding: 1vh;
+    padding-left: 1vh;
   }
 
   .imgontext {
@@ -590,7 +590,7 @@ body {
 
 .aboutme-tagline {
   color: #1a1a1a;
-  line-height: 2vh;
+  line-height: 2.5vh;
   font-weight: 400;
   font-family: 'Adogare';
   max-width: 17vh;
