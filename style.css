@@ -565,7 +565,7 @@ body {
   .paragraph2 p {
     font-family: playfair, serif;
     font-size: 1.85vh;
-    line-height: 1;
+    line-height: 2vh;
     letter-spacing: 2px;
     color: rebeccapurple;
     max-width: 22vh;
@@ -590,11 +590,11 @@ body {
 
 .aboutme-tagline {
   color: #1a1a1a;
-  line-height: 1.4;
+  line-height: 2vh;
   font-weight: 400;
   font-family: 'Adogare';
-  max-width: 15vh;
-  font-size: 1.75vh;
+  max-width: 17vh;
+  font-size: 2vh;
   font-style: italic;
   letter-spacing: 5px;
   z-index: 1;
@@ -716,7 +716,7 @@ body {
 
 .modeling-tagline {
   color: white;
-  line-height: 1.4;
+  line-height: 3.5vh;
   font-weight: 400;
   font-family: 'Adogare';
   max-width: 22vh;
