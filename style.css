@@ -580,6 +580,7 @@ body {
     font-family: playfair, serif;
     position: absolute;
     padding-left: 1vh;
+    line-height: 1;
   }
 
   .imgontext {
