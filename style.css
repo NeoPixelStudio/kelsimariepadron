@@ -30,19 +30,6 @@ body {
   justify-content: center;
   align-items: center;
   line-height: 2.75vh;
-  background-image: url("./img/background3.jpg");
-  background-position: left bottom;
-  background-repeat: no-repeat;
-  background-size: 100vw 100vh;
-  background-attachment: local;
-}
-
-@media (orientation: portrait) {
-  body {
-    justify-content: flex-start;
-    align-items: flex-start;
-    line-height: 2;
-  }
 }
 
 /* =====================================================
@@ -51,15 +38,17 @@ body {
 
 body {
   background-image: url("./img/background3.jpg");
+  background-attachment: local;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* 21:9 y mayores (landscape) */
-@media (min-aspect-ratio: 21/9) and (orientation: landscape) {
+@media (orientation: portrait) {
   body {
-    background-image: url("./img/background3.jpg");
+    justify-content: flex-start;
+    align-items: flex-start;
+    line-height: 2;
   }
 }
 
@@ -195,7 +184,7 @@ body {
   background-color: white;
 }
 
-/************** CV **************/
+/************** SERVICES **************/
 .page:nth-child(6) {
   background-color: white;
   background-image: url(./img/services/services_link.jpg);
@@ -267,6 +256,8 @@ body {
   z-index: 3;
 }
 
+/************** MODELING **************/
+
 .page:nth-child(8) {
   background-color: white;
   background-image: url(./img/services/bg_model1.svg);
@@ -311,9 +302,36 @@ body {
   pointer-events: none;
 }
 
-.page:nth-child(10),
+/************** TV-HOST **************/
+
+.page:nth-child(10) {
+  background-color: white;
+  background-image: url(./img/services/bg_tvhost1.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  overflow: hidden;
+}
+
+.page:nth-child(10) img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
 .page:nth-child(11) {
-  background-color: rgb(197, 59, 59);
+  background-color: white;
+  background-image: url(./img/services/bg_tvhost2.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  overflow: hidden;
 }
 
 .page:nth-child(12),
@@ -376,12 +394,6 @@ body {
   aspect-ratio: 10 / 9;
 }
 
-/* @media (orientation: portrait) {
-  .bound {
-    height: 85vh;
-  }
-} */
-
 .bound .pages {
   width: 100%;
   height: 103vh;
@@ -400,7 +412,7 @@ body {
   float: none;
   clear: none;
   margin: 0;
-  padding: 5%;
+  padding: 3%;
   position: absolute;
   top: 0;
   width: 50%;
@@ -496,7 +508,28 @@ body {
 }
 
 /* =====================================================
-   PAGES 4-16: ESTILOS DE TEXTO Y DISEÑO
+   PAGES 4-16: ESTILOS GENERALES DE TEXTO Y DISEÑO
+   ===================================================== */
+
+.paragraph_img {
+  display: flex;
+  padding: 0 !important;
+}
+
+.page_subtitle {
+  font-size: 1vh;
+  letter-spacing: 0.75vh;
+  color: #000;
+  margin: 0;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  font-family: roboto, sans-serif;
+  font-weight: 300;
+  margin-bottom: 3vh;
+}
+
+/* =====================================================
+   ABOUT ME
    ===================================================== */
 
 .page_title1 {
@@ -521,27 +554,6 @@ body {
   letter-spacing: 2px;
   text-align: left;
 }
-
-.paragraph_img {
-  display: flex;
-  padding: 0 !important;
-}
-
-.page_subtitle {
-  font-size: 1vh;
-  letter-spacing: 0.75vh;
-  color: #000;
-  margin: 0;
-  border-bottom: 1px solid gray;
-  border-top: 1px solid gray;
-  font-family: roboto, sans-serif;
-  font-weight: 300;
-  margin-bottom: 3vh;
-}
-
-/* =====================================================
-   ABOUT ME
-   ===================================================== */
 
    .aboutme-content {
     display: flex;   
@@ -726,4 +738,123 @@ body {
   z-index: 1;
   border-right: solid 1px white;
   padding-right: 1vh;
+}
+
+/* =====================================================
+   TV-HOST
+   ===================================================== */
+
+#section-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3vh !important;
+  overflow-y: auto;
+}
+
+.section-page-image {
+  background-color: #f0eded;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: left;
+  align-items: end;
+}
+
+.section-page-image p {
+  z-index: 1;
+}
+
+.tvhost-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 23vh;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.tvhost-content {
+  flex: 1;
+  overflow-y: auto;
+  max-width: 40vh;
+}
+
+.tvhost-quote {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 3vh;
+  background-color: white;
+  padding: 2vh;
+  margin-left: -5vh;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tvhost-quote p {
+  font-style: italic;
+  font-size: 3vh;
+  color: #1a1a1a;
+  line-height: 1;
+  margin: 0;
+  font-weight: 300;
+  font-family: 'Playfair', serif;
+}
+
+.tvhost-quote p span {
+  color: #a00000;
+  font-size: 5vh;
+  font-family: 'Playfair', serif;
+  position: absolute;
+}
+
+.tvhost-item {
+  margin-bottom: 2.5vh;
+  padding-left: 1.5vh;
+  border-left: 1px solid #a00000;
+}
+
+.item-title {
+  font-size: 1.6vh;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 0.8vh 0;
+  letter-spacing: 0.1vh;
+  text-align: right;
+}
+
+.tvhost-item p {
+  font-size: 1.25vh;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  text-align: justify;
+}
+
+#tvhost-img img {
+  width: 100%;
+  object-fit: contain;
+  object-position: center center;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+}
+
+.tvhost-tagline {
+  color: white;
+  line-height: 3.5vh;
+  font-weight: 400;
+  font-family: 'Adogare';
+  max-width: 22vh;
+  font-size: 2.5vh;
+  font-style: italic;
+  z-index: 1;
+  border-left: solid 1px white;
+  padding-left: 1vh;
+}
+
+.tvhost-left-text {
+  background-color: white !important;
 }
