@@ -320,7 +320,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: right center;
   pointer-events: none;
 }
 
@@ -602,20 +602,16 @@ body {
 }
 
 .aboutme-tagline {
-  color: #1a1a1a;
-  line-height: 2.5vh;
-  font-weight: 400;
-  font-family: 'Adogare';
-  max-width: 17vh;
-  font-size: 2vh;
-  font-style: italic;
-  letter-spacing: 5px;
-  z-index: 1;
-  margin-top: 12vh;
-  padding-top: 1vh;
-  border-top: solid #1a1a1a;
-  border-width: 1px;
-  border-image: linear-gradient(to right, black 50%, transparent 50%) 1;
+    color: #cccccc;
+    line-height: 2.5vh;
+    font-weight: 400;
+    font-family: 'Adogare', serif;
+    max-width: 20vh;
+    font-size: 2.5vh;
+    font-style: italic;
+    letter-spacing: 5px;
+    margin-top: 12vh;
+    padding-top: 1vh;
 }
 
 /* =====================================================
@@ -729,14 +725,12 @@ body {
 
 .modeling-tagline {
   color: white;
-  line-height: 3.5vh;
   font-weight: 400;
   font-family: 'Adogare';
   max-width: 22vh;
   font-size: 2.5vh;
+  line-height: 3.5vh;
   font-style: italic;
-  z-index: 1;
-  border-right: solid 1px white;
   padding-right: 1vh;
 }
 
@@ -805,7 +799,7 @@ body {
 }
 
 .tvhost-quote p span {
-  color: #a00000;
+  color: #e0557b;
   font-size: 5vh;
   font-family: 'Playfair', serif;
   position: absolute;
@@ -814,7 +808,7 @@ body {
 .tvhost-item {
   margin-bottom: 2.5vh;
   padding-left: 1.5vh;
-  border-left: 1px solid #a00000;
+  border-left: 1px solid #e0557b;
 }
 
 .item-title {
@@ -842,19 +836,16 @@ body {
   margin-bottom: 5vh;
 }
 
-.tvhost-tagline {
-  color: white;
-  line-height: 3.5vh;
-  font-weight: 400;
-  font-family: 'Adogare';
-  max-width: 22vh;
-  font-size: 2.5vh;
-  font-style: italic;
-  z-index: 1;
-  border-left: solid 1px white;
-  padding-left: 1vh;
-}
-
 .tvhost-left-text {
   background-color: white !important;
+}
+
+.tvhost-tagline {
+  color: #e0557b;
+  font-size: 2.5vh;
+  line-height: 3.5vh;
+  font-style: italic;
+  font-weight: 400;
+  font-family: 'Adogare', serif;
+  padding-right: 14vh;
 }
