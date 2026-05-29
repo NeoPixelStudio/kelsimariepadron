@@ -7,19 +7,27 @@
   <title>Kelsi Marie</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style_pages.css">
+  <link rel="stylesheet" href="./style_global.css">
   <link rel="icon" href="logo.png" type="image/png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
+    rel="stylesheet">
 
 </head>
 
 <body>
+
   <div id="loader"></div>
+
   <div class="book bound">
     <div class="pages">
+
+      <!-- Hero Page -->
+
       <div class="page hero-page">
         <div class="hero-leftside">
         </div>
@@ -28,39 +36,44 @@
           <div class="hero-title">
             <div style="font-size: 6vh; line-height: 1;">tu</div>
             <div style="font-size: 4vh; line-height: 1; font-style: italic; font-family: fantasy;" class="highlight">
-              <i>MARCA</i></div>
+              <i>MARCA</i>
+            </div>
             <div style="font-size: 6vh; line-height: 1;">con</div>
             <div style="font-size: 4vh; line-height: 1; font-style: italic; font-family: fantasy;" class="highlight">
-              <i>ESTILO</i></div>
+              <i>ESTILO</i>
+            </div>
           </div>
-
           <br>
-
           <div class="hero-subtitle">¿LISTO PARA<br>POTENCIAR TU MARCA?</div>
-
           <div>About ME</div>
           <div class="subtitle-text">Conoce quién es Kelsi</div>
-
           <div> ÁREAS DE TRABAJO</div>
           <div class="subtitle-text">Cómo te puedo ayudar</div>
         </div>
       </div>
-      <div class="page video-page">
+
+      <!-- Video -->
+
+      <div class="page video-page" id="video-page_left">
         <video muted loop playsinline preload="auto" class="split-video1">
           <source src="video/home/hero.mp4" type="video/mp4">
         </video>
       </div>
-      <div class="page video-page">
+
+      <div class="page video-page" id="video-page_right">
         <video muted loop playsinline preload="auto" class="split-video2">
           <source src="video/home/hero.mp4" type="video/mp4">
         </video>
       </div>
-      <div class="page" id="aboutme_left">
+
+      <!-- About Me -->
+
+      <div class="page aboutme" id="aboutme_left">
         <div class="aboutme-tagline">
           Comunicar <br> con propósito, conectar con autenticidad, crear con impacto.
         </div>
       </div>
-      <div class="page aboutme_right">
+      <div class="page aboutme" id="aboutme_right">
         <div class="page_title1">About</div>
         <div class="page_title2">ME</div>
         <div class="aboutme-header">
@@ -82,10 +95,10 @@
             </p>
           </div>
           <div class="paragraph2">
-            <img class="imgontext" src="./img/pg2_abme.png" alt="Imagen de la página 2">
+            <img class="aboutme-refimg" src="./img/pg2_abme.png" alt="Imagen de la página 2">
             <br><br> <span>"</span>
             <p> Mi propósito es aportar valor y creatividad en cada proyecto, siempre con miras a un
-            crecimiento mutuo y conexiones auténticas.
+              crecimiento mutuo y conexiones auténticas.
             </p>
           </div>
         </div>
@@ -101,81 +114,123 @@
           <div class="service5_text">MODELING  </div>
         </div>
       </div>
-      <div class="page" id="modeling-left">
+
+      <!-- modeling -->
+
+      <div class="page modeling" id="modeling-left">
         <div class="modeling-container">
-      
+
           <div class="page_subtitle">
             <p>BELLEZA • CONFIANZA • AUTENTICIDAD</p>
           </div>
-      
+
           <div class="modeling-content">
             <div class="modeling-quote">
               <p><span>"</span>    Empoderar</p>
-              <p>la imagen es</p> 
+              <p>la imagen es</p>
               <p>revelar tu mejor</p>
               <p>versión.<span>"</span></p>
             </div>
-      
+
             <div class="modeling-section">
               <h3 class="section-title">ROSTRO ETREBELLE ECUADOR</h3>
               <p>Imagen oficial de la marca dermocosmética alemana Etrebelle (2018–2023), desde mi experiencia como
                 maquilladora, guié a mujeres a potenciar su imagen con elegancia y autenticidad.</p>
             </div>
-      
+
             <div class="modeling-section">
               <h3 class="section-title">ASESORA Y PREPARADORA DE REINAS</h3>
-              <p>Desde la postura, caminata, pasarela, oratoria y desenvolvimiento escénico, he asesorado a múltiples reinas
+              <p>Desde la postura, caminata, pasarela, oratoria y desenvolvimiento escénico, he asesorado a múltiples
+                reinas
                 de belleza para una proyección escénica segura, elegante y coherente entre su imagen y voz.</p>
             </div>
-      
+
             <div class="modeling-section">
               <h3 class="section-title">FORMADA EN MODELER.EC</h3>
               <p>Fui reconocida como "Mejor Pasarela". Tengo vasta experiencia en editoriales, campañas publicitarias,
                 desfiles, activaciones de marca y más.</p>
             </div>
           </div>
-      
+
         </div>
       </div>
-      <div id="modeling-image" class="page modeling-page-image modeling-right">
+      <div class="page modeling modeling-page-image" id="modeling-right">
         <img src="./img/services/modeling.png" alt="Modeling" class="modeling-img">
+
         <p class="modeling-tagline">Belleza que inspira, presencia que transforma.</p>
       </div>
 
-      <div class="page" id="tvhost-left">
-        <img src="./img/services/tv-host.png" alt="tvhost Image">
+      <!-- tvhost -->
+
+      <div class="page tvhost" id="tvhost-left">
+        <img src="./img/services/tv-host.png" alt="TV Host" class="tvhost-img">
       </div>
-      <div id="tvhost-text" class="page tvhost-left-text">
+
+      <div class="page tvhost" id="tvhost-right">
         <div class="tvhost-container">
-      
+
           <div class="page_subtitle">
             <p>COMUNICACIÓN • CONEXIÓN • CONFIANZA</p>
           </div>
-      
+
           <div class="tvhost-content">
             <div class="tvhost-quote">
               <p>Presentadora</p>
-              <p><span style="position: relative;">En Familia</span></p> 
+              <p><span style="position: relative;">En Familia</span></p>
               <p>Unsión TV</p>
             </div>
 
             <div id="tvhost-img">
-              <img src="./img/services/press.png" alt="TV Host">
+              <img src="./img/services/press.png" alt="TV Host" class="press-img">
             </div>
-      
+
             <div class="tvhost-item">
               <p>Conduzco junto a Wilo Prado y Milena Aguilar, el programa "En Familia".
-                Abordamos temas actuales, valores y entretenimiento sano, generando 
+                Abordamos temas actuales, valores y entretenimiento sano, generando
                 conversación y conexión, con un estilo cálido, dinámico y profesional
                 que conecta.</p>
             </div>
             <p class="tvhost-tagline">Comunicar es conectar corazones e inspirar decisiones.</p>
           </div>
-      
         </div>
       </div>
-      <div class="page">i</div>
-      <div class="page">j</div>
+
+      <!-- makeup -->
+
+      <div class="page makeup" id="makeup-left">
+        <div class="makeup-container">
+
+          <div class="page_subtitle">
+            <p>COMUNICACIÓN • CONEXIÓN • CONFIANZA</p>
+          </div>
+
+          <div class="makeup-content">
+
+            <div class="makeup-gallery">
+              <div class="makeup-card-img"><img src="./img/services/makeup-gallery/mkup1.JPG"></div>
+              <div class="makeup-card-img"><img src="./img/services/makeup-gallery/mkup2.JPG"></div>
+              <div class="makeup-card-img"><img src="./img/services/makeup-gallery/mkup3.JPG"></div>
+              <div class="makeup-card-img"><img src="./img/services/makeup-gallery/mkup4.JPG"></div>
+              <div class="makeup-card-img"><img src="./img/services/makeup-gallery/mkup5.JPG"></div>
+              <div class="makeup-card-img"><img src="./img/services/makeup-gallery/mkup6.JPG"></div>
+              <div class="makeup-card-img"><img src="./img/services/makeup-gallery/mkup7.JPG"></div>
+            </div>
+
+            <div class="makeup-item">
+              <p>Conduzco junto a Wilo Prado y Milena Aguilar, el programa "En Familia".
+                Abordamos temas actuales, valores y entretenimiento sano, generando
+                conversación y conexión, con un estilo cálido, dinámico y profesional
+                que conecta.</p>
+            </div>
+            <p class="makeup-tagline">Comunicar es conectar corazones e inspirar decisiones.</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="page" id="makeup-right">
+        <img src="./img/services/makeup.png" class="makeup-img" alt="makeup Image">
+        <img src="./img/services/bg_makeup2.svg" class="makeup-title" alt="makeup title">
+      </div>
       <div class="page">k</div>
       <div class="page">l</div>
       <div class="page">m</div>

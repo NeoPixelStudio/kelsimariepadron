@@ -1,0 +1,247 @@
+/* =====================================================
+   RESET Y ESTILOS GLOBALES
+   ===================================================== */
+@font-face {
+  font-family: 'Adogare';
+  src: url("./resources/font/Adogare.otf") format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #e3dfd8;
+  font-family: roboto, sans-serif;
+  font-weight: 300;
+  font-size: 1.25vh;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 2.75vh;
+}
+
+/* =====================================================
+   BACKGOUNDS GLOBAL RESPONSIVOS
+   ===================================================== */
+
+body {
+  background-image: url("./img/background3.jpg");
+  background-attachment: local;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (orientation: portrait) {
+  body {
+    justify-content: flex-start;
+    align-items: flex-start;
+    line-height: 2;
+  }
+}
+
+/* Menor que 21:9 hasta 16:9 (landscape) */
+@media (max-aspect-ratio: 21/9) and (min-aspect-ratio: 16/10) and (orientation: landscape) {
+  body {
+    background-image: url("./img/background2.jpg");
+  }
+}
+
+/* Igual o menor que 16:9 hasta 1:1 (landscape) */
+@media (max-aspect-ratio: 16/9) and (min-aspect-ratio: 1/1) and (orientation: landscape) {
+  body {
+    background-image: url("./img/background1.jpg");
+  }
+}
+
+@media (orientation: portrait) {
+  body {
+    background-image: url("./img/background.png");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* =====================================================
+   PÁGINAS Y ANIMACIONES DEL LIBRO
+   ===================================================== */
+
+.book {
+  transition: opacity 0.4s 0.2s;
+}
+
+.bound {
+  perspective: 5000px;
+  margin-top: -5%;
+  height: 100vh;
+  aspect-ratio: 10 / 9;
+}
+
+.bound .pages {
+  width: 100%;
+  height: 103vh;
+  position: relative;
+  transform: rotateX(12deg);
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.bound .page {
+  float: none;
+  clear: none;
+  margin: 0;
+  padding: 3%;
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+/* Sombra/overlay en las páginas */
+.bound .page:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.7s;
+  z-index: 2;
+}
+
+/* Página derecha (impar) - Interactiva */
+.bound .page:nth-child(odd) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+  right: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.bound .page:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.bound .page:nth-child(odd):hover {
+  transform: rotateY(-10deg);
+}
+
+.bound .page:nth-child(odd):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Página izquierda (par) - Trasera */
+.bound .page:nth-child(even) {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  transform-origin: 100% 0;
+  left: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+.bound .page:nth-child(even):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Página volteada */
+.bound .page.grabbing {
+  transition: none;
+}
+
+.bound .page.flipped:nth-child(odd) {
+  pointer-events: none;
+  transform: rotateY(-180deg);
+}
+
+.bound .page.flipped:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.bound .page.flipped:nth-child(even) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+}
+
+.bound .page.flipped:nth-child(even):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.bound .page.flipped:nth-child(even):hover {
+  transform: rotateY(10deg);
+}
+
+.bound .page.flipped:nth-child(even):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* =====================================================
+   ESTILOS GLOBALES DE LAS PÁGINAS
+   ===================================================== */
+
+.page_subtitle {
+  font-size: 1vh;
+    letter-spacing: 0.75vh;
+    color: #000;
+    margin: 0;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+    font-family: roboto, sans-serif;
+    font-weight: 300;
+    margin-bottom: 3vh;
+}
+
+/* =====================================================
+   LOADER
+   ===================================================== */
+   
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e3dfd8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#loader::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
