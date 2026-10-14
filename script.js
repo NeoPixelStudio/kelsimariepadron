@@ -58,8 +58,7 @@ $(window).load(function() {
     setTimeout(scrollToRightIfPortrait, 100);
   });
   
-  $('.page').click(function() {
-    var page = $(this);
+  function turnPage(page) {
     var page_num = pages.index(page) + 1;
     if (page_num % 2 === 0) {
       page.removeClass('flipped');
@@ -69,6 +68,24 @@ $(window).load(function() {
       page.next().addClass('flipped');
     }
     updatePageNavigation();
+  }
+
+  $('.page').click(function() {
+    turnPage($(this));
+  });
+
+  $('.service_title button').on('click', function(event) {
+    event.stopPropagation();
+
+    var targetPage = $('#' + $(this).data('page-target'));
+    var targetIndex = pages.index(targetPage);
+    if (targetIndex < 0) {
+      return;
+    }
+
+    for (var i = 6; i < targetIndex; i += 2) {
+      turnPage(pages.eq(i));
+    }
   });
 
   previousButton.on('click', function() {

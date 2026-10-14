@@ -212,10 +212,15 @@
 .service3_text,
 .service4_text,
 .service5_text {
-  /* width: 100vh; */
+  display: block;
+  border: 0;
   border-bottom: 1px solid #ffffff;
+  background: transparent;
   padding-top: 3vh;
   color: white;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
 }
 
 .service1_text {
