@@ -56,13 +56,13 @@
 
       <div class="page video-page" id="video-page_left">
         <video muted loop playsinline preload="auto" class="split-video1">
-          <source src="video/home/hero.mp4" type="video/mp4">
+          <source src="video/home/hero.webm" type="video/webm">
         </video>
       </div>
 
       <div class="page video-page" id="video-page_right">
         <video muted loop playsinline preload="auto" class="split-video2">
-          <source src="video/home/hero.mp4" type="video/mp4">
+          <source src="video/home/hero.webm" type="video/webm">
         </video>
       </div>
 
@@ -95,7 +95,9 @@
             </p>
           </div>
           <div class="paragraph2">
-            <img class="aboutme-refimg" src="./img/pg2_abme.png" alt="Imagen de la página 2">
+            <video class="aboutme-refimg" autoplay muted loop playsinline>
+              <source src="./video/abme/abme.webm" type="video/webm">
+            </video>
             <br><br> <span>"</span>
             <p> Mi propósito es aportar valor y creatividad en cada proyecto, siempre con miras a un
               crecimiento mutuo y conexiones auténticas.
@@ -125,11 +127,14 @@
           </div>
 
           <div class="modeling-content">
-            <div class="modeling-quote">
-              <p><span>"</span>    Empoderar</p>
-              <p>la imagen es</p>
-              <p>revelar tu mejor</p>
-              <p>versión.<span>"</span></p>
+            <div class="modeling-quote-row">
+              <div class="modeling-quote">
+                <p><span>"</span>    Empoderar</p>
+                <p>la imagen es</p>
+                <p>revelar tu mejor</p>
+                <p>versión.<span>"</span></p>
+              </div>
+              <img src="./img/services/modeling.gif" alt="Modeling" class="modeling-quote-gif">
             </div>
 
             <div class="modeling-section">
@@ -182,7 +187,7 @@
 
             <div id="tvhost-img">
               <video muted loop playsinline autoplay preload="auto" class="press-video" aria-label="TV Host video">
-                <source src="./img/services/press.mp4" type="video/mp4">
+                <source src="./img/services/press.webm" type="video/mp4">
               </video>
             </div>
 
