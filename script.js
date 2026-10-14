@@ -11,6 +11,27 @@ pages.each(function(i) {
 
 $(window).load(function() {
   var effectTime = 0; // Tiempo del efecto de scroll
+  var previousButton = $('.page-navigation-previous');
+  var nextButton = $('.page-navigation-next');
+
+  function updatePageNavigation() {
+    var previousPage = null;
+    var nextPage = null;
+
+    pages.each(function(i) {
+      var page = $(this);
+      if (i % 2 === 0) {
+        if (page.hasClass('flipped')) {
+          previousPage = page;
+        } else if (!nextPage) {
+          nextPage = page;
+        }
+      }
+    });
+
+    previousButton.prop('hidden', !previousPage);
+    nextButton.prop('hidden', !nextPage);
+  }
   
   // Detectar orientación portrait y hacer scroll horizontal
   function scrollToRightIfPortrait() {
@@ -47,7 +68,35 @@ $(window).load(function() {
       page.addClass('flipped');
       page.next().addClass('flipped');
     }
+    updatePageNavigation();
   });
+
+  previousButton.on('click', function() {
+    var previousPage = null;
+    pages.each(function(i) {
+      var page = $(this);
+      if (i % 2 === 0 && page.hasClass('flipped')) {
+        previousPage = page;
+      }
+    });
+
+    if (previousPage) {
+      previousPage.next().trigger('click');
+    }
+  });
+
+  nextButton.on('click', function() {
+    var nextPage = pages.filter(function(i) {
+      return i % 2 === 0 && !$(this).hasClass('flipped');
+    }).first();
+
+    if (nextPage.length) {
+      nextPage.trigger('click');
+    }
+  });
+
+  updatePageNavigation();
+  $(window).on('resize orientationchange', updatePageNavigation);
 
   if (grabs) {
     $('.page').on('mousedown', function(e) {

@@ -198,6 +198,60 @@ body {
   background: rgba(0, 0, 0, 0.03);
 }
 
+.page-navigation-button {
+  display: none;
+}
+
+.page-navigation-button[hidden] {
+  display: none;
+}
+
+@media (orientation: portrait) {
+  .page-navigation-button:not([hidden]) {
+    position: fixed;
+    top: 50%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+    background: rgba(30, 20, 20, 0.38);
+    color: rgba(255, 255, 255, 0.9);
+    font: 300 3rem/1 sans-serif;
+    cursor: pointer;
+    transform: translateY(-50%);
+    animation: page-navigation-pulse 1.7s ease-in-out infinite;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .page-navigation-previous {
+    left: 1rem;
+  }
+
+  .page-navigation-next {
+    right: 1rem;
+  }
+}
+
+@keyframes page-navigation-pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-navigation-button {
+    animation: none;
+  }
+}
+
 /* =====================================================
    ESTILOS GLOBALES DE LAS PÁGINAS
    ===================================================== */
