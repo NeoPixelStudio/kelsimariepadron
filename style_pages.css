@@ -1,8 +1,8 @@
-.page:nth-child(18) {
+.page.blank-page:nth-child(even) {
   background-color: rgb(95, 47, 255);
 }
 
-.page:nth-child(19) {
+.page.blank-page:nth-child(odd) {
   background-color: rgb(0, 198, 63);
 }
 
@@ -159,6 +159,12 @@
     border-left: solid 1px rebeccapurple;
   }
 
+  @media (orientation: portrait) {
+    .paragraph2 p {
+      font-size: 1.5vh;
+    }
+  }
+
   .paragraph2 span {
     font-size: 7.5vh;
     color: rebeccapurple;
@@ -180,9 +186,6 @@
     font-weight: 400;
     font-family: 'Adogare', serif;
     max-width: 20vh;
-    font-size: 2vh;
-    font-style: italic;
-    letter-spacing: 3px;
     margin-top: 12vh;
     padding-top: 1vh;
 }
@@ -266,6 +269,12 @@
   z-index: 3;
 }
 
+@media (orientation: portrait) {
+  .service_title {
+    font-size: 5vh;
+  }
+}
+
 /* =====================================================
    MODELING
    ===================================================== */
@@ -282,8 +291,7 @@
   flex-direction: column;
 }
 
-#modeling-right,
-#modeling-right-copy {
+#modeling-right {
   background-color: white;
   background-image: url(./img/services/bg_model2.svg);
   background-position: center;
@@ -295,7 +303,6 @@
   object-position: 30% center;
   display: flex;
   justify-content: right;
-  align-items: end;
   padding: 3vh !important;
   overflow-y: auto;
 }
@@ -316,11 +323,17 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 20vh;
+  margin-top: 15vh;
   justify-content: center;
   justify-items: center;
   align-items: center;
   align-content: center;
+}
+
+@media (orientation: portrait) {
+  .modeling-container {
+    margin-top: 20vh;
+  }
 }
 
 .modeling-title {
@@ -337,20 +350,14 @@
 .modeling-content {
   flex: 1;
   overflow-y: auto;
-  max-width: 33vh;
+  max-width: 35vh;
 }
 
 .modeling-quote {
   display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin-bottom: 3vh;
-}
-
-.modeling-quote-row {
-  display: flex;
-  align-items: stretch;
-  gap: 1.5vh;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2vh;
 }
 
 .modeling-quote-gif {
@@ -358,46 +365,18 @@
   object-fit: cover;
 }
 
-.modeling-quote p {
-  font-style: italic;
-  font-size: 3vh;
-  color: #1a1a1a;
-  line-height: 1;
-  margin: 0;
-  font-weight: 300;
-  font-family: 'Playfair', serif;
-}
-
-.modeling-quote p span {
+.modeling-quote span {
   color: #a00000;
   font-size: 5vh;
   font-family: 'Playfair', serif;
   position: absolute;
 }
 
-.modeling-section {
+.modeling-item {
   margin-top: 2.5vh;
   margin-bottom: 2.5vh;
   padding-left: 1.5vh;
   border-left: 1px solid #a00000;
-}
-
-.modeling-section p {
-  font-size: 1.25vh;
-  line-height: 1.5;
-  color: #333;
-  margin: 0;
-  text-align: justify;
-}
-
-.section-title {
-  font-size: 1.6vh;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin: 0 0 0.8vh 0;
-  letter-spacing: 0.1vh;
-  text-align: left;
-  width: 100%;
 }
 
 .modeling-img {
@@ -412,12 +391,8 @@
 
 .modeling-tagline {
   color: white;
-  font-weight: 400;
   font-family: 'Adogare';
   max-width: 22vh;
-  font-size: 2.5vh;
-  line-height: 3.5vh;
-  font-style: italic;
   padding-right: 1vh;
 }
 
@@ -461,15 +436,14 @@
   text-align: center;
 }
 
-.tvhost-quote {
+.tvhost-title {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.tvhost-quote p {
+.tvhost-title p {
   font-style: italic;
-  font-size: 2.5vh;
   color: #1a1a1a;
   line-height: 1;
   margin: 0;
@@ -477,9 +451,9 @@
   font-family: 'Playfair', serif;
 }
 
-.tvhost-quote p span {
+.tvhost-title p span {
   color: #e0557b;
-  font-size: 3vh;
+  font-size: 2vh;
   font-family: 'Playfair', serif;
   position: absolute;
 }
@@ -488,23 +462,6 @@
   margin-bottom: 2.5vh;
   padding-left: 1.5vh;
   border-left: 1px solid #e0557b;
-}
-
-.item-title {
-  font-size: 1.6vh;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin: 0 0 0.8vh 0;
-  letter-spacing: 0.1vh;
-  text-align: right;
-}
-
-.tvhost-item p {
-  font-size: 1.25vh;
-  line-height: 1.5;
-  color: #333;
-  margin: 0;
-  text-align: justify;
 }
 
 .tvhost-img {
@@ -568,7 +525,7 @@
 }
 
 .makeup .page_subtitle {
-      color: white;
+    color: white;
     border-bottom: 1px solid white;
     border-top: 1px solid white;
 }
@@ -590,53 +547,10 @@
   max-width: 40vh;
 }
 
-.makeup-quote {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin-bottom: 3vh;
-  background-color: white;
-  padding: 2vh;
-  margin-left: -5vh;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.makeup-quote p {
-  font-style: italic;
-  font-size: 3vh;
-  line-height: 1;
-  margin: 0;
-  font-weight: 300;
-  font-family: 'Playfair', serif;
-}
-
-.makeup-quote p span {
-  color: #e0557b;
-  font-size: 5vh;
-  font-family: 'Playfair', serif;
-  position: absolute;
-}
-
 .makeup-item {
   margin-bottom: 2.5vh;
   padding-left: 1.5vh;
   border-left: 1px solid #efa537;
-}
-
-.item-title {
-  font-size: 1.6vh;
-  font-weight: 600;
-  margin: 0 0 0.8vh 0;
-  letter-spacing: 0.1vh;
-  text-align: right;
-}
-
-.makeup-item p {
-  font-size: 1.25vh;
-  line-height: 1.5;
-  margin: 0;
-  text-align: justify;
 }
 
 .makeup-img {
@@ -661,10 +575,6 @@
 
 .makeup-tagline {
   color: #efa537;
-  font-size: 2.5vh;
-  line-height: 3.5vh;
-  font-style: italic;
-  font-weight: 400;
   font-family: 'Adogare', serif;
   padding-right: 14vh;
 }
@@ -674,6 +584,12 @@
   height: 30vh;
   margin-bottom: 5vh;
   overflow: visible;
+}
+
+@media (orientation: portrait) {
+  .makeup-gallery {
+    height: 22vh;
+  }
 }
 
 .makeup-card-img {
@@ -688,6 +604,12 @@
   transform-origin: 50% 100%;
   overflow: hidden;
   animation: makeupAutoCycle 21s infinite ease-in-out;
+}
+
+@media (orientation: portrait) {
+  .makeup-card-img {
+    height: 15rem;
+  }
 }
 
 .makeup-card-img:nth-child(1) { animation-delay: 0s; }
@@ -772,42 +694,31 @@
 
 .fashion-container {
   width: 100%;
-  padding-left: 5vh;
-  padding-right: 5vh;
+  padding-left: 3vh;
+  padding-right: 3vh;
   display: flex;
   flex-direction: column;
   margin-top: 3vh;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
 }
 
 .fashion-content {
   margin-top: 22vh;
+  margin-bottom: 2vh;
   flex: 1;
   overflow-y: auto;
   max-width: 40vh;
+  justify-items: center;
 }
 
-.fashion-quote {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  max-width: 27vh;
-  margin:auto;
+@media (orientation: portrait) {
+
+  .fashion-content {
+    margin-top: 20vh;
+  }
+
 }
 
-.fashion-quote p {
-  color: black;
-  font-size: 3vh;
-  line-height: 4vh;
-  font-style: italic;
-  letter-spacing: 0.15vh;
-  font-family: 'Adogare', serif;
-}
-
-.fashion-quote p span {
+.fashion-quote span {
   color: #dfb357;
   font-size: 5vh;
   font-family: 'Adogare', serif;
@@ -815,27 +726,9 @@
 }
 
 .fashion-item {
-  margin-bottom: 2.5vh;
   padding-left: 1.5vh;
   border-left: 1px solid #dfb357;
   max-width: 40vh;
-}
-
-.item-title {
-  font-size: 1.6vh;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin: 0 0 0.8vh 0;
-  letter-spacing: 0.1vh;
-  text-align: right;
-}
-
-.fashion-item p {
-  font-size: 1.25vh;
-  line-height: 1.5;
-  color: #333;
-  margin: 0;
-  text-align: justify;
 }
 
 .fashion_gif {
@@ -962,23 +855,14 @@
 }
 
 .pageants-quote {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin-bottom: 3vh;
+  margin-bottom: 15vh;
 }
 
 .pageants-quote p {
-  font-style: italic;
-  font-size: 3.5vh;
   color: #bf8cac;
-  line-height: 1.5;
-  margin: 0;
-  font-weight: 300;
-  font-family: 'Playfair', serif;
 }
 
-.pageants-quote p span {
+.pageants-quote span {
   color: #bf8cac;
   font-size: 5vh;
   font-family: 'Playfair', serif;
@@ -991,16 +875,6 @@
   color: #333;
   margin: 0;
   text-align: justify;
-}
-
-.section-title {
-  font-size: 1.6vh;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin: 0 0 0.8vh 0;
-  letter-spacing: 0.1vh;
-  text-align: left;
-  width: 100%;
 }
 
 .pageants-img {
